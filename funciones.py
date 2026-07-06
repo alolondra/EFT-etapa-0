@@ -33,7 +33,13 @@ def validar_vendidos(vendidos):
     return vendidos >= 0
 
 def stock_categoria(categoria,productos,inventario):
-    pass
+    categoria=categoria.strip().lower()
+    total=0
+    for codigo in productos:
+        datos_producto=productos[codigo]
+        if datos_producto[1].strip().lower() == categoria:
+            total+=inventario[codigo][0]
+    print('El total de stock disponible es:',total)
 
 def buscar_precio(precio_min,precio_max,productos,inventario):
     pass
@@ -53,7 +59,12 @@ def agregar_producto(codigo,nombre,categoria,precio,disponible,stock,vendidos,pr
     pass
 
 def eliminar_producto(codigo,productos,inventario):
-    pass
+    codigo=codigo.strip().upper()
+    if buscar_codigo(codigo,productos):
+        del productos[codigo]
+        del inventario[codigo]
+        return True
+    return False
 
 def mostrar_productos(productos,inventario):
     if len(productos) == 0 or len(inventario):

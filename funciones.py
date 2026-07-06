@@ -39,10 +39,15 @@ def buscar_precio(precio_min,precio_max,productos,inventario):
     pass
 
 def buscar_codigo(codigo,productos):
-    pass
+    codigo=codigo.strip().upper()
+    return codigo in productos
 
 def actualizar_precio(codigo,nuevo_precio,productos):
-    pass
+    codigo=codigo.strip().upper()
+    if buscar_codigo(codigo,productos):
+        productos[codigo][2]=nuevo_precio
+        return True
+    return False
 
 def agregar_producto(codigo,nombre,categoria,precio,disponible,stock,vendidos,productos,inventario):
     pass

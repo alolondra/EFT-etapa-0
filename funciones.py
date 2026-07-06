@@ -51,4 +51,21 @@ def eliminar_producto(codigo,productos,inventario):
     pass
 
 def mostrar_productos(productos,inventario):
-    pass
+    if len(productos) == 0 or len(inventario):
+        print('Sin registros de productos')
+    else:
+        print('--- LISTA DE PRODUCTOS ---')
+        for codigo in productos:
+            datos_producto=productos[codigo]
+            datos_inventario=inventario[codigo]
+
+            print('CÓDIGO:',codigo)
+            print('-'*26)
+            print('Nombre:', datos_producto[0])
+            print('Categoría:', datos_producto[1])
+            print(f'Precio: ${datos_producto[2]}')
+            print('Disponible:', datos_producto[3])
+            print('Stock:', datos_inventario[0])
+            print('Vendidos:', datos_inventario[1])
+            print('-'*26)
+            print()
